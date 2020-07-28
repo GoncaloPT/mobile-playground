@@ -1,0 +1,26 @@
+{
+  "cordova-plugin-whitelist": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-whitelist@1"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-biometric-keychain": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-biometric-keychain"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-ios-keychain": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/ionic-team/cordova-plugin-ios-keychain"
+    },
+    "is_top_level": true,
+    "variables": {}
+  }
+}
