@@ -24,5 +24,8 @@ The base application is a react website. Therefore react tools can be used for a
 
 ## Screens 
 
-
+- Landing / index
 ![Screen 1](screens/IMG_0137.PNG?raw=true "screen1")
+
+- After button pressed
+![Screen 2](screens/IMG_0138.PNG?raw=true "screen2")
