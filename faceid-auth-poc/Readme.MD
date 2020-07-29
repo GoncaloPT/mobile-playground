@@ -21,3 +21,8 @@ cordova run ios
 
 The base application is a react website. Therefore react tools can be used for a faster development  
 - use `npm start` to run the application in the browser. This will not give you access to native ( cordova ) functionality maybe be used to develop the look&feel 
+
+## Screens 
+
+
+![Screen 1](screens/IMG_0137.PNG?raw=true "screen1")
