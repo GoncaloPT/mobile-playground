@@ -2,7 +2,7 @@
 
 platform :ios, '10.0'
 
-target 'HelloCordova' do
-	project 'HelloCordova.xcodeproj'
+target 'FaceIdAuthPoc' do
+	project 'FaceIdAuthPoc.xcodeproj'
 
 end
