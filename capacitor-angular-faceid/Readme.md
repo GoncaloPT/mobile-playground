@@ -37,4 +37,16 @@ https://capacitorjs.com/docs/cordova/known-incompatible-plugins
 ### Plugins reference
 https://github.com/triniwiz/capacitor-fingerprint-auth
 
+## Screens
 
+- Landing / index
+![Landing](screens/IMG_0139.PNG?raw=true "Landing")
+
+- Trying to login 
+![Login try](screens/IMG_0142.PNG?raw=true "login-try")
+
+- Login Failed, wrong biometrics
+![Login failed](screens/IMG_0143.PNG?raw=true "login-failed")
+
+- Login Ok
+![Login ok](screens/IMG_0141.PNG?raw=true "login-ok")
