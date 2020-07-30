@@ -4,19 +4,19 @@ The use case will be to enable an easy login using faceid
 
 
 ## Executed steps
-1. Create angular web app with a login form
-`ng new capacitor-angular-faceid`
+*. Create angular web app with a login form
+`ng new capacitor-angular-faceid`  
 `ng generate component login`
-1. Add capacitor to the web application
+*. Add capacitor to the web application
 `ng add @capacitor/angular`  
 `npx cap init`  
-changed capacitor.config.json to used as webDir the value "dist/capacitor-angular-faceid" ( this did not work, capacitor always appends www to the config)  
+~~changed capacitor.config.json to used as webDir the value "dist/capacitor-angular-faceid"~~ ( this did not work, capacitor always appends www to the config)  
 changed outputPath in angular.json to www  and removed dist folder
 `ng build --prod`  
 `npx cap add ios`
 
-1. Add capacitor plugins
-`npm i capacitor-fingerprint-auth`
+*. Add capacitor plugins
+`npm i capacitor-fingerprint-auth`  
 `npx cap update`
 
 ## Build angular + capacitor 
@@ -31,7 +31,7 @@ This proved to be a hard task since must plugins exist in ionic.
 
 Current application can do touchid authentication but fails to access a secure storage ( like keychain ) since there is no plugin for that. Therefore a development using only capacitor would have to develop those plugins or wait for the community to develop them.
 
-1. There are incompatible plugins 
+*. There are incompatible plugins 
 https://capacitorjs.com/docs/cordova/known-incompatible-plugins
 
 ### Plugins reference
@@ -40,13 +40,13 @@ https://github.com/triniwiz/capacitor-fingerprint-auth
 ## Screens
 
 - Landing / index
-![Landing](screens/IMG_0139.PNG?raw=true "Landing")
+![Landing](screens/IMG_0139.png?raw=true "Landing")
 
 - Trying to login 
-![Login try](screens/IMG_0142.PNG?raw=true "login-try")
+![Login try](screens/IMG_0142.png?raw=true "login-try")
 
 - Login Failed, wrong biometrics
-![Login failed](screens/IMG_0143.PNG?raw=true "login-failed")
+![Login failed](screens/IMG_0143.png?raw=true "login-failed")
 
 - Login Ok
-![Login ok](screens/IMG_0141.PNG?raw=true "login-ok")
+![Login ok](screens/IMG_0141.png?raw=true "login-ok")
