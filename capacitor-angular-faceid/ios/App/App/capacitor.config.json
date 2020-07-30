@@ -1,0 +1,13 @@
+{
+  "appId": "pt.goncalo.mobileplayground",
+  "appName": "capacitor-angular-faceid",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}
