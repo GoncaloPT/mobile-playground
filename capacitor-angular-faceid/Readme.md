@@ -16,7 +16,8 @@ changed outputPath in angular.json to www  and removed dist folder
 `npx cap add ios`
 
 * Add capacitor plugins
-`npm i capacitor-fingerprint-auth`  
+`npm i capacitor-fingerprint-auth`
+`npm i capacitor-secure-storage-plugin`
 `npx cap update`
 
 ## Build angular + capacitor 
@@ -29,13 +30,14 @@ Capacitor site advocate that cordova/ionic plugins may also be used.
 I've tried to develop the application without adding ionic, since the target app only uses angular.
 This proved to be a hard task since must plugins exist in ionic.
 
-Current application can do touchid authentication but fails to access a secure storage ( like keychain ) since there is no plugin for that. Therefore a development using only capacitor would have to develop those plugins or wait for the community to develop them.
+~~Current application can do touchid authentication but fails to access a secure storage ( like keychain ) since there is no plugin for that. Therefore a development using only capacitor would have to develop those plugins or wait for the community to develop them.~~ ( just found a plugin that enables this - secure-storage )
 
 * There are incompatible plugins 
 https://capacitorjs.com/docs/cordova/known-incompatible-plugins
 
 ### Plugins reference
-https://github.com/triniwiz/capacitor-fingerprint-auth
+https://github.com/triniwiz/capacitor-fingerprint-auth  
+https://github.com/martinkasa/capacitor-secure-storage-plugin
 
 ## Screens
 
@@ -50,3 +52,6 @@ https://github.com/triniwiz/capacitor-fingerprint-auth
 
 - Login Ok
 ![Login ok](screens/IMG_0141.png?raw=true "login-ok")
+
+### Useful stuff
+`npx cap open ios` - open xcode

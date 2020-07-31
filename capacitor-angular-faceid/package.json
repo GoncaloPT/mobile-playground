@@ -26,6 +26,7 @@
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
     "bootstrap": "^4.5.0",
     "capacitor-fingerprint-auth": "0.0.2",
+    "capacitor-secure-storage-plugin": "^0.4.0",
     "cordova-plugin-ios-keychain": "^3.0.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

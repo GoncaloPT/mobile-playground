@@ -1,5 +1,6 @@
 
 <div class="container mt-5">
+    <ngb-alert *ngIf="infoMessage" type="info" (close)="infoMessage = ''">{{infoMessage}}</ngb-alert>
     <ngb-alert *ngIf="loginSuccess" type="success" (close)="loginSuccess = false">Login success</ngb-alert>
     <ngb-alert *ngIf="loginFailedMessage" type="danger" (close)="loginFailedMessage = ''">{{loginFailedMessage}}</ngb-alert>
     <div class="row">
@@ -17,7 +18,7 @@
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password"
-                    disabled
+                    required
                     placeholder="Your Password *" value="" 
                     [(ngModel)]="password" name="password"
                     #name="ngModel"
@@ -31,6 +32,7 @@
                
                 
             </form>
+            <h2>KeyChain / Secure Storage</h2>
             <hr class="mt-5"/>
             <div class="form-group mt-2">
                 <strong>Stored username is: </strong>{{storedUsername}}

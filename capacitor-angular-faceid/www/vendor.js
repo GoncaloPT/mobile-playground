@@ -66686,6 +66686,82 @@ const FingerPrintAuthWebPlugin = new FingerPrintAuthPluginWeb();
 
 /***/ }),
 
+/***/ "./node_modules/capacitor-secure-storage-plugin/dist/esm/index.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/capacitor-secure-storage-plugin/dist/esm/index.js ***!
+  \************************************************************************/
+/*! exports provided: SecureStoragePluginWeb, SecureStoragePlugin */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _web__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./web */ "./node_modules/capacitor-secure-storage-plugin/dist/esm/web.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SecureStoragePluginWeb", function() { return _web__WEBPACK_IMPORTED_MODULE_0__["SecureStoragePluginWeb"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "SecureStoragePlugin", function() { return _web__WEBPACK_IMPORTED_MODULE_0__["SecureStoragePlugin"]; });
+
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/capacitor-secure-storage-plugin/dist/esm/web.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/capacitor-secure-storage-plugin/dist/esm/web.js ***!
+  \**********************************************************************/
+/*! exports provided: SecureStoragePluginWeb, SecureStoragePlugin */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SecureStoragePluginWeb", function() { return SecureStoragePluginWeb; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SecureStoragePlugin", function() { return SecureStoragePlugin; });
+/* harmony import */ var _capacitor_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @capacitor/core */ "./node_modules/@capacitor/core/dist/esm/index.js");
+
+class SecureStoragePluginWeb extends _capacitor_core__WEBPACK_IMPORTED_MODULE_0__["WebPlugin"] {
+    constructor() {
+        super({
+            name: 'SecureStoragePlugin',
+            platforms: ['web'],
+        });
+        this.PREFIX = 'cap_sec_';
+        this.addPrefix = (key) => this.PREFIX + key;
+    }
+    get(options) {
+        return localStorage.getItem(this.addPrefix(options.key)) !== null
+            ? Promise.resolve({
+                value: atob(localStorage.getItem(this.addPrefix(options.key))),
+            })
+            : Promise.reject('Item with given key does not exist');
+    }
+    set(options) {
+        localStorage.setItem(this.addPrefix(options.key), btoa(options.value));
+        return Promise.resolve({ value: true });
+    }
+    remove(options) {
+        localStorage.removeItem(this.addPrefix(options.key));
+        return Promise.resolve({ value: true });
+    }
+    clear() {
+        for (var key in localStorage) {
+            if (key.indexOf(this.PREFIX) === 0) {
+                localStorage.removeItem(key);
+            }
+        }
+        return Promise.resolve({ value: true });
+    }
+    getPlatform() {
+        return Promise.resolve({ value: 'web' });
+    }
+}
+const SecureStoragePlugin = new SecureStoragePluginWeb();
+
+
+Object(_capacitor_core__WEBPACK_IMPORTED_MODULE_0__["registerWebPlugin"])(SecureStoragePlugin);
+//# sourceMappingURL=web.js.map
+
+/***/ }),
+
 /***/ "./node_modules/rxjs/_esm2015/index.js":
 /*!*********************************************!*\
   !*** ./node_modules/rxjs/_esm2015/index.js ***!
