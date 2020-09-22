@@ -10,8 +10,11 @@ class MovieListWidget {
   var _movies = <Movie>[];
 
   Widget buildMovieList(Set<Movie> elements,
-      {Function(int) favoriteTapCallback,
-      String emptyListMessage = "No data"}) {
+      {
+        @required
+        Function(int) favoriteTapCallback,
+      String emptyListMessage = "No data"
+      }) {
     if (elements == null || elements.length < 1) {
       return _buildEmptyListWidget(emptyListMessage);
     }

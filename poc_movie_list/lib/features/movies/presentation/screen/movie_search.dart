@@ -36,6 +36,7 @@ class _MovieSearchState extends State<MovieSearch> {
 
   @override
   void initState() {
+    super.initState();
     searchFutureResult = Future.value(null);
   }
 

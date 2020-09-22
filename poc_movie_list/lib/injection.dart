@@ -4,7 +4,9 @@ import 'package:poc_movie_list/injection.config.dart';
 
 final getIt = GetIt.instance;
 @injectableInit
-void configureInjection(Environments environment) => $initGetIt(getIt,environment: environment.toString());
+void configureInjection(Environments environment) =>
+    $initGetIt(getIt,environment: environment.toString()
+    );
 
 
 enum Environments{

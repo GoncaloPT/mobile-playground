@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:poc_movie_list/features/movies/domain/entities/movie.dart';
 import 'package:http/http.dart' as http;
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 @immutable
 @singleton
@@ -22,12 +21,6 @@ class MovieService {
     return _favorites;
   }
 
-  bool addFavoriteFirebase(Movie favorite) {
-    FirebaseFirestore
-        .instance
-        .collection('poc-movie-list');
-
-  }
 
   bool addFavorite(Movie favorite) {
 

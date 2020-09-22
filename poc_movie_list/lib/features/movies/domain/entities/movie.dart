@@ -1,4 +1,5 @@
 class Movie {
+
   final int id;
   final String title;
   final String releaseYear;
@@ -13,7 +14,7 @@ class Movie {
   @override
   int get hashCode => title.hashCode;
 
-  factory Movie.fromJson(Map<String,dynamic> json){
+  factory Movie.fromJson(Map<String,Object> json){
     return Movie(
       json['id'],
       json['Title'],
