@@ -24,9 +24,14 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^4.3.2
-  injectable: ^1.0.4
+  injectable:
+    path: ../../../injectable/injectable
   get_it: ^4.0.0
   http: ^0.12.2
+  shared_ui:
+    path: features/shared_ui
+  movies:
+    path: features/movies
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -34,10 +39,12 @@ dependencies:
   cupertino_icons: ^0.1.3
 
 dev_dependencies:
+  effective_dart: ^1.2.0
   flutter_test:
     sdk: flutter
   build_runner:
-  injectable_generator: ^1.0.4
+  injectable_generator:
+    path: ../../../injectable/injectable_generator
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:poc_movie_list/injection.dart';
-import 'features/movies/presentation/widgets/main_tab_bar.dart';
+import 'package:movies/movies.dart';
+import 'injection.dart';
+
 
 void main() {
-  configureInjection(Environments.DEVELOPMENT);
+  configureInjection(Environments.development);
   runApp(MyApp());
 }
 
@@ -17,4 +18,8 @@ class MyApp extends StatelessWidget {
       home: getIt<MainTabBar>(),
     );
   }
+}
+
+class JustATest{
+  MoviesModule a;
 }
