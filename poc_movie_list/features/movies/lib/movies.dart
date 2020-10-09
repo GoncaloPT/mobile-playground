@@ -9,7 +9,7 @@ export 'src/presentation/widgets/main_tab_bar.dart';
 export 'src/domain/services/movie_service.dart';
 
 
-@microPackage
+@MicroPackage("movies")
 class MoviesModule{
   static void registerModuleDependencies(GetIt get){
     configureInjection();

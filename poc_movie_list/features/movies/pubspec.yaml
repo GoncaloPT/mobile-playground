@@ -13,10 +13,13 @@ dependencies:
     sdk: flutter
   http: ^0.12.2
   get_it: ^4.0.0
+  logging: ^0.11.4
   injectable:
     path: ../../../../../injectable/injectable
   shared_ui:
     path: ../shared_ui
+  poc_movie_list:
+    path: ../../../poc_movie_list
 
 
 dev_dependencies:

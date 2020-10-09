@@ -4,16 +4,14 @@ import 'injection.config.dart';
 import 'package:movies/movies.dart';
 import 'package:shared_ui/shared_ui.dart';
 
+
 final getIt = GetIt.instance;
 @MicroPackageRootInit(
   generateForDir: ['lib'],
-  asExtension: false
+  asExtension: true
 )
 void configureInjection(Environments environment) {
-    $initGetIt(getIt,environment: environment.toString());
-    // Register all the micropackages
-
-
+  getIt.$initGetIt(environment: environment.toString());
 }
 enum Environments{
   development,

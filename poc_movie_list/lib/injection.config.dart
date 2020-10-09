@@ -4,19 +4,20 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
-import 'injection.injection.micropackage.config.dart';
+import 'injection.config.micropackage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
 /// adds generated dependencies
 /// to the provided [GetIt] instance
 
-GetIt $initGetIt(
-  GetIt get, {
-  String environment,
-  EnvironmentFilter environmentFilter,
-}) {
-  final gh = GetItHelper(get, environment, environmentFilter);
-  MicroPackagesConfig.registerMicroModules(get);
-  return get;
+extension GetItInjectableX on GetIt {
+  GetIt $initGetIt({
+    String environment,
+    EnvironmentFilter environmentFilter,
+  }) {
+    final gh = GetItHelper(this, environment, environmentFilter);
+    MicroPackagesConfig.registerMicroModules(this);
+    return this;
+  }
 }

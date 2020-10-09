@@ -262,14 +262,14 @@ packages:
       path: "../../../injectable/injectable"
       relative: true
     source: path
-    version: "1.0.4"
+    version: "1.0.5"
   injectable_generator:
     dependency: "direct dev"
     description:
       path: "../../../injectable/injectable_generator"
       relative: true
     source: path
-    version: "1.0.4"
+    version: "1.0.5"
   io:
     dependency: transitive
     description:
@@ -292,7 +292,7 @@ packages:
     source: hosted
     version: "3.0.1"
   logging:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: logging
       url: "https://pub.dartlang.org"

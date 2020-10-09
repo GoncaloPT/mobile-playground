@@ -6,7 +6,7 @@ import 'injection.config.dart';
 
 final getIt = GetIt.instance;
 @InjectableInit(
-  generateForDir: ['lib','features/movies/lib'],
+  generateForDir: ['lib'],
   initializerName: 'registerMoviesModuleDependencies',
   asExtension: true
 )

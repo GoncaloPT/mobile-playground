@@ -4,7 +4,8 @@ import 'package:injectable/injectable.dart';
 import 'injection.dart';
 export 'app_bar.dart';
 
-@microPackage
+/// Module declaration
+@MicroPackage("sharedUi")
 class SharedUiModule {
   static void registerModuleDependencies(GetIt get){
     configureInjection();

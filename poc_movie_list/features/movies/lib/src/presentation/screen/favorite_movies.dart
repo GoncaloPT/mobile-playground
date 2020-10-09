@@ -12,9 +12,10 @@ class FavoriteMovies extends StatefulWidget {
   final MovieService _movieService;
   final MovieSearch _movieSearchWidget;
 
-
   FavoriteMovies(
       this._appBarFactory, this._movieService, this._movieSearchWidget);
+
+
 
   @override
   State<StatefulWidget> createState() {

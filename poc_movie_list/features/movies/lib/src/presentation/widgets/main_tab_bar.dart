@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 import '../screen/favorite_movies.dart';
 import '../screen/movie_search.dart';
 
+
 @injectable
 /// TabBar for landing screen
 class MainTabBar extends StatefulWidget {

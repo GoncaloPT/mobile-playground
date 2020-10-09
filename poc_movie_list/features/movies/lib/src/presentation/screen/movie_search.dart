@@ -1,21 +1,27 @@
 
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logging/logging.dart';
+import 'package:movies/src/domain/bloc/movies.bloc.dart';
 import 'package:shared_ui/shared_ui.dart';
 import '../../domain/entities/movie.dart';
 import '../../domain/services/movie_service.dart';
 import '../widgets/movie_list_widget.dart';
 
+
+
 @injectable
 class MovieSearch extends StatefulWidget {
+
   final MovieService _service;
   final AppBarFactory _appBarFactory;
+  final MoviesBloc _movieBloc;
 
-  MovieSearch(this._service, this._appBarFactory);
+  MovieSearch(this._service, this._appBarFactory, this._movieBloc);
 
   @override
   _MovieSearchState createState() =>
-      _MovieSearchState(_service, _appBarFactory);
+      _MovieSearchState(_service, _appBarFactory, _movieBloc);
 
   ///https://www.youtube.com/watch?v=FDNitOxpUks&ab_channel=DesiProgrammer
   ///http://www.omdbapi.com/
@@ -23,19 +29,26 @@ class MovieSearch extends StatefulWidget {
 }
 
 class _MovieSearchState extends State<MovieSearch> {
+  static final _log = Logger('_MovieSearchState');
   final MovieService _service;
   final AppBarFactory _appBarFactory;
-  Future<Set<Movie>> searchFutureResult;
+  final MoviesBloc _movieBloc;
+  //Future<Set<Movie>> searchFutureResult;
 
   Widget searchBar = Text("Search Movie");
   Icon searchIcon = Icon(Icons.search);
 
-  _MovieSearchState(this._service, this._appBarFactory);
+  _MovieSearchState(MovieService service, AppBarFactory _appBarFactory, MoviesBloc _movieBloc):
+  _service = service,
+  this._appBarFactory = _appBarFactory,
+  this._movieBloc = _movieBloc {
+    _log.warning("_MovieSearchState constructor");
+  }
 
   @override
   void initState() {
     super.initState();
-    searchFutureResult = Future.value(null);
+    //searchFutureResult = Future.value(null);
   }
 
   @override
@@ -58,15 +71,13 @@ class _MovieSearchState extends State<MovieSearch> {
                         hintText: "Search a movie"),
                     onSubmitted: (value) {
                       setState(() {
-                        searchFutureResult =
-                            _service.searchMovies(title: value);
+                        _movieBloc.search(value);
                       });
                     },
                   );
                 } else {
                   searchIcon = Icon(Icons.search);
                   searchBar = Text("Search Movie");
-                  searchFutureResult = Future.value();
                 }
               });
             },
@@ -75,8 +86,8 @@ class _MovieSearchState extends State<MovieSearch> {
 
     return Scaffold(
         appBar: appBarFactory.build(title: searchBar),
-        body: FutureBuilder<Set<Movie>>(
-            future: searchFutureResult,
+        body: StreamBuilder<Iterable<Movie>>(
+            stream: _movieBloc.stream,
             builder: (ctx, snapshot) {
               return MovieListWidget(ctx).buildMovieList(snapshot.data,
                   emptyListMessage: "Search for movies",
@@ -84,6 +95,7 @@ class _MovieSearchState extends State<MovieSearch> {
                         setState(() {
                           final movie = snapshot.data.elementAt(index);
                           if (_service.addFavorite(movie)) {
+
                             Scaffold.of(ctx).showSnackBar(SnackBar(
                               duration: Duration(milliseconds: 2000),
                               backgroundColor: Theme.of(ctx).primaryColor,
@@ -97,5 +109,10 @@ class _MovieSearchState extends State<MovieSearch> {
                         })
                       });
             }));
+  }
+
+  @override
+  void dispose() {
+    _movieBloc.dispose();
   }
 }

@@ -1,0 +1,6 @@
+{
+  "moduleFileLocation": "package:shared_ui/shared_ui.dart",
+  "moduleName": "sharedUi",
+  "moduleClassName": "SharedUiModule",
+  "methodName": "registerModuleDependencies"
+}

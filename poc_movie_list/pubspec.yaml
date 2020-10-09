@@ -28,6 +28,7 @@ dependencies:
     path: ../../../injectable/injectable
   get_it: ^4.0.0
   http: ^0.12.2
+  logging: ^0.11.4
   shared_ui:
     path: features/shared_ui
   movies:

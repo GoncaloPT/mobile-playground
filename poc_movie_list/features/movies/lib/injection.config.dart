@@ -12,6 +12,8 @@ import 'src/presentation/screen/favorite_movies.dart';
 import 'src/presentation/widgets/main_tab_bar.dart';
 import 'src/presentation/screen/movie_search.dart';
 import 'src/domain/services/movie_service.dart';
+import 'movies.dart' as movies;
+import 'src/domain/bloc/movies.bloc.dart';
 
 /// adds generated dependencies
 /// to the provided [GetIt] instance
@@ -22,8 +24,12 @@ extension GetItInjectableX on GetIt {
     EnvironmentFilter environmentFilter,
   }) {
     final gh = GetItHelper(this, environment, environmentFilter);
-    gh.factory<MovieSearch>(
-        () => MovieSearch(get<MovieService>(), get<AppBarFactory>()));
+    gh.factory<MoviesBloc>(() => MoviesBloc(get<movies.MovieService>()));
+    gh.factory<MovieSearch>(() => MovieSearch(
+          get<MovieService>(),
+          get<AppBarFactory>(),
+          get<MoviesBloc>(),
+        ));
     gh.factory<FavoriteMovies>(() => FavoriteMovies(
           get<AppBarFactory>(),
           get<MovieService>(),
